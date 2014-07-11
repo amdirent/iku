@@ -109,6 +109,6 @@ switch(commands.shift()) {
 
   default:
     if(args._.length) {
-      logger.error('Unknown command "%s"', args._.join(' '));
+      console.log('Unknown command :"' + args._.join(' '));
     }
 }
