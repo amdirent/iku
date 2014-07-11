@@ -2,7 +2,6 @@
   "name": "iku",
   "version": "0.0.1",
   "description": "Enyo + Node + Postgress Framework",
-  "main": "iku.js",
 	"homepage": "http://amdirent.github.io/iku",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -22,5 +21,13 @@
   "license": "MIT License",
   "bugs": {
     "url": "https://github.com/amdirent/iku/issues"
-  }
+  },
+	"bin": "./cli.js",
+	"dependencies": {
+		"express": "latest",
+		"lodash": "latest",
+		"async": "latest",
+		"minimist": "latest",
+		"mocha": "latest"
+	}
 }
