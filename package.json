@@ -1,0 +1,26 @@
+{
+  "name": "iku",
+  "version": "0.0.1",
+  "description": "Enyo + Node + Postgress Framework",
+  "main": "iku.js",
+	"homepage": "http://amdirent.github.io/iku",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:amdirent/iku.git"
+  },
+  "keywords": [
+    "framework",
+    "enyo",
+    "node",
+		"express",
+		"postgres"
+  ],
+  "author": "Christopher Rankin <rankin.devon@gmail.com> (http://amdirent.com/)",
+  "license": "MIT License",
+  "bugs": {
+    "url": "https://github.com/amdirent/iku/issues"
+  }
+}
