@@ -57,47 +57,55 @@ switch(commands.shift()) {
   case 'new':
 		var name = commands.shift();
 		var CWD = process.cwd();  	
-		var newDir = CWD + '/../' + name;		
+		var newDir = CWD + '/' + name;		
+		var srcDir = newDir + '/source';
 
 		// STEP 1: Make our new app direcory
+		console.log("Creating directory: " + newDir);
 		fs.mkdir(newDir, function (err) {
 			if (err) {
 				logError(err);
 				process.exit(1);
 			}
-	
-			exec('cd ' + newDir + ' && git init', function (err) {
+
+			fs.mkdir(srcDir, function (err) {
 				if (err) {
 					logError(err);
 					process.exit(1);
 				}
+				
+				console.log("Initializing git repository");
+				exec('cd ' + srcDir + ' && git init', function (err) {
+					if (err) {
+						logError(err);
+						process.exit(1);
+					}
+					
+					console.log("Creating server");
+					exec('cd ' + srcDir + ' && express --ejs server', function (err) {
+						if (err) {
+							logError(err);
+							process.exit(1);
+						}
+					});
+
+					console.log("Creating client");
+					exec('cd ' + srcDir + ' && git submodule add https://github.com/amdirent/bootplate.git client', function (err) {
+						if (err) {
+							logError(err);
+							process.exit(1);
+						}
+					});
+				});
 			});
-	
-			// STEP 2: Add Vagrant VM	
-			exec('cd ' + newDir + ' && git submodule add https://github.com/amdirent/vagrant-trusty-pg93-node.git vagrant', function (err) {
+
+			console.log("Creating vagrant folder.");
+			exec('cd ' + newDir + ' && git clone https://github.com/amdirent/vagrant-trusty-pg93-node.git vagrant', function (err) {
 				if (err) {
 					logError(err);
 					process.exit(1);
 				}
 			});		
-
-
-			// STEP 3: Generate our express app (the server)
-			exec('cd ' + newDir + ' && express --ejs server', function (err) {
-				if (err) {
-					logError(err);
-					process.exit(1);
-				}
-			});
-
-
-			// STEP 4: Clone in enyo bootplate (the client)
-			exec('cd ' + newDir + ' && git submodule add https://github.com/amdirent/bootplate.git client', function (err) {
-				if (err) {
-					logError(err);
-					process.exit(1);
-				}
-			});
 
 		});	
   	break;
@@ -109,6 +117,6 @@ switch(commands.shift()) {
 
   default:
     if(args._.length) {
-      console.log('Unknown command :"' + args._.join(' '));
+      console.log('Unknown command :' + args._.join(' '));
     }
 }
