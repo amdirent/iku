@@ -38,7 +38,38 @@ switch(commands.shift()) {
     var packageJson = fs.readFileSync(path.join(__dirname, "./package.json"));
     console.log("Version: " + JSON.parse(packageJson).version);
     break;
+	
+	case 'vm':
+		console.log("Not implemented.");
+		//var cmd = commands.shift();
 
+		// Check to see if this is a iku project.
+		//isIkuProject = _.contains(fs.readdirSync(process.cwd()), '.iku');
+		//if (!isIkuProject) {
+		//	console.log("You need to be inside your project's root directory when you run this command.");
+		//	process.exit(1);
+		//}
+
+		//switch(cmd) {
+		//	case 'up':
+		//		exec('cd vagrant && vagrant up', function (err) {
+		//			if (err) { logError(err) } 
+		//		});
+		//		break;
+		//	case 'down':
+		//		exec('cd vagrant && vagrant destroy', function (err) {
+		//			if (err) { logError(err) } 
+		//		});
+		//		break;
+		//	case 'ssh':
+		//		exec('cd vagrant && vagrant ssh', function (err) {
+		//			if (err) { logError(err) } 
+		//		});
+		//		break;
+		//}
+
+		break;
+	
   // Build
   //case 'build':
 	//	buildClient();
@@ -68,6 +99,8 @@ switch(commands.shift()) {
 				process.exit(1);
 			}
 
+			fs.writeFileSync(newDir + '/.iku', '');
+
 			fs.mkdir(srcDir, function (err) {
 				if (err) {
 					logError(err);
@@ -90,11 +123,17 @@ switch(commands.shift()) {
 					});
 
 					console.log("Creating client");
-					exec('cd ' + srcDir + ' && git submodule add https://github.com/amdirent/bootplate.git client', function (err) {
+					exec('cd ' + srcDir + ' && git submodule add -b production https://github.com/amdirent/bootplate.git client', function (err) {
 						if (err) {
 							logError(err);
 							process.exit(1);
 						}
+						exec('cd ' + srcDir + ' && git submodule update --init --recursive', function (err){
+							if (err) {
+								logError(err);
+								process.exit(1);
+							}
+						});
 					});
 				});
 			});

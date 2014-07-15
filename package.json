@@ -1,6 +1,6 @@
 {
   "name": "iku",
-  "version": "0.0.3",
+  "version": "0.0.6",
   "description": "Enyo + Node + Postgress Framework",
 	"homepage": "http://amdirent.github.io/iku",
   "scripts": {
