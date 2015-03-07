@@ -1,0 +1,13 @@
+#!/usr/bin/env node --harmony
+
+/*!
+ * Iku - Postgres powered RESTful API's.
+ * 
+ * Christopher Rankin <crankin@amdirent.com>
+ * MIT License.
+ */
+
+/**
+ * Dispatches the argv to the application.
+ */
+require('../lib/cli').start();
