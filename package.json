@@ -1,34 +1,34 @@
 {
-  "name": "iku",
-  "description": "Build PostgresSQL backed RESTful API's quickly",
-  "version": "0.0.7",
-  "private": true,
-  "dependencies": {
-    "flatiron": "0.4.3",
-    "colors": "1.0.3",
-    "password-generator": "0.2.3"
-  },
-  "devDependencies": {
-    "cli-easy": "0.1.0",
-    "vows": "0.6.1"
-  },
-  "scripts": {
-    "test": "vows --spec"
-  },
-  "bin": {
-    "iku": "./bin/iku"
-  },
-  "author": "Christopher Rankin",
-  "homepage": "http://amdirent.github.io/iku/",
-  "license": "MIT License",
-  "bugs": {
-    "url": ""
-  },
-  "keywords": [
-    "framework",
-    "postgres",
-    "postgresql",
-    "node",
-    "restful"
-  ]
+	"name": "iku",
+	"description": "Build PostgresSQL backed RESTful API's quickly",
+	"version": "0.0.4",
+	"private": true,
+	"dependencies": {
+		"flatiron": "0.4.3",
+		"colors": "1.0.3",
+		"password-generator": "0.2.3"
+	},
+	"devDependencies": {
+		"cli-easy": "0.1.0",
+		"vows": "0.6.1"
+	},
+	"scripts": {
+		"test": "vows --spec"
+	},
+	"bin": {
+		"iku": "./bin/iku"
+	},
+	"author": "Christopher Rankin",
+	"homepage": "http://amdirent.github.io/iku/",
+	"license": "MIT License",
+	"bugs": {
+		"url": ""
+	},
+	"keywords": [
+		"framework",
+		"postgres",
+		"postgresql",
+		"node",
+		"restful"
+	]
 }
