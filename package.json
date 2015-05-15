@@ -2,7 +2,6 @@
   "name": "iku",
   "description": "Build PostgresSQL backed RESTful API's quickly",
   "version": "0.0.5",
-  "private": true,
   "dependencies": {
     "flatiron": "0.4.3",
     "colors": "1.0.3",
